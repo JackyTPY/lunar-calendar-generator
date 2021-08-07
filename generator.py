@@ -25,15 +25,31 @@ if __name__ == '__main__':
   start = datetime(year=2000, month=1, day=1)
   end = datetime(year=2100, month=12, day=31)
 
-  def ten_day_veg_rule(lunar):
-    try:
-      ZhDate(lunar.lunar_year, lunar.lunar_month, 30)
-      return lunar.lunar_day in [1, 8, 14, 15, 18, 23, 24, 28, 29, 30]
-    except:
-      return lunar.lunar_day in [1, 8, 14, 15, 18, 23, 24, 27, 28, 29]
+  # def ten_day_veg_rule(lunar):
+  #   try:
+  #     ZhDate(lunar.lunar_year, lunar.lunar_month, 30)
+  #     return lunar.lunar_day in [1, 8, 14, 15, 18, 23, 24, 28, 29, 30]
+  #   except:
+  #     return lunar.lunar_day in [1, 8, 14, 15, 18, 23, 24, 27, 28, 29]
     
 
-  generate_calendar(ten_day_veg_rule, start, end, '十齋日', 'schedule/十齋日.csv')
+  # generate_calendar(ten_day_veg_rule, start, end, '十齋日', 'schedule/十齋日.csv')
+
+  # def six_day_veg_rule(lunar):
+  #   try:
+  #     ZhDate(lunar.lunar_year, lunar.lunar_month, 30)
+  #     return lunar.lunar_day in [8, 14, 15, 23, 29, 30]
+  #   except:
+  #     return lunar.lunar_day in [8, 14, 15, 23, 28, 29]
+    
+
+  # generate_calendar(six_day_veg_rule, start, end, '六齋日', 'schedule/六齋日.csv')
+
+  def four_day_veg_rule(lunar):
+    return lunar.lunar_day in [1, 8, 15, 23]
+    
+
+  generate_calendar(four_day_veg_rule, start, end, '四齋日', 'schedule/四齋日.csv')
 
   # def first_rule(lunar):
   #   return lunar.lunar_day in [1]
